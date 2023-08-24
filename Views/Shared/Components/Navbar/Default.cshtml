@@ -1,0 +1,26 @@
+﻿@*@model IEnumerable<DigiShop.Models.Category>*@
+
+@*@using DigiShop.Models.ViewModels;
+@model ProductListViewModel*@
+
+@*@model DigiShop.Models.ViewModels.ProductListViewModel*@
+@model IEnumerable<DigiShop.Models.Category>
+
+<div>
+    <a href="#" class="list-group-item active">
+        Electronics
+    </a>
+    <ul class="list-group">
+        
+        @foreach (var item in Model)
+        {
+        <li class="list-group-item">
+                <a href="/Products/ProductsByCategory/?categoryId=@item.CategoryId">
+                   @*asp-action="ProductsByCategory" asp-route-id="@Model?.CategoryId"*@
+                @item.CategoryName 
+                <span class="label label-primary pull-right">@item.CategoryQuantity</span>
+            </a>
+        </li>
+        }
+    </ul>
+</div>

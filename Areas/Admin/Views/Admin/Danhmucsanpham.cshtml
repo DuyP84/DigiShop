@@ -1,0 +1,95 @@
+﻿@*@model IEnumerable<DigiShop.Models.Product>*@
+@model X.PagedList.IPagedList<DigiShop.Models.Product>
+@using X.PagedList.Mvc.Core
+@{
+    ViewData["Title"] = "Danhmucsanpham";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h2>Danh muc san pham</h2>
+
+<p>
+    <a asp-action="AddNew">Create New</a>
+</p>
+
+
+<p>@TempData["Message"]</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ProductName
+            </th>
+            <th>
+                ProductDescription
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                ProductPrice
+            </th>
+            <th>
+                ProductDiscount
+            </th>
+            <th>
+                ProductPhoto
+            </th>
+            <th>
+                Size
+            </th>
+            <th>
+                Color
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category.CategoryId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductDiscount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductPhoto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Size.SizeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Color.ColorName)
+            </td>
+            
+            <td>
+                <a asp-action="Update" asp-route-productId="@item.ProductId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ProductId">Details</a> |
+                <a asp-action="Delete" asp-route-productId="@item.ProductId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+
+@Html.PagedListPager(Model, page => Url.Action("Danhmucsanpham",new { page = page }), 
+new X.PagedList.Web.Common.PagedListRenderOptions()
+{
+    LiElementClasses = new List<String> {"page-item"},
+    PageClasses = new List<String> {"page-link"}
+
+})
+

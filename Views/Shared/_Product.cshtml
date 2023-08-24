@@ -1,0 +1,21 @@
+﻿@*@using X.PagedList.Mvc.Core;*@
+@*@model DigiShop.Models.Product*@
+@*@model X.PagedList.IPagedList<DigiShop.Models.Product>*@
+
+@model DigiShop.Models.Product
+
+@*<div class="col-md-4 text-center col-sm-6 col-xs-6">
+    <div class="thumbnail product-box">
+        <img src="@Model.ProductPhoto" alt="" />
+        <div class="caption">
+            <h3><a href="#">@Model.ProductName</a></h3>
+            <p>Price: <strong>$ @Model.ProductPrice</strong></p>
+            <p>Discount: $ @(Model.ProductPrice * (1 - Model.ProductDiscount))</p>
+            <p>Optional dismiss button in tional dismiss button in</p>
+            <p>
+                <a href="/Cart/AddToCart/?productId=@Model.ProductId" class="btn btn-success" role="button">Add To Cart</a>
+                <a href="/Products/Details/?id=@Model.ProductId" class="btn btn-primary" role="button">See Details</a>
+            </p>
+        </div>
+    </div>
+</div>*@

@@ -1,0 +1,32 @@
+﻿@model DigiShop.Models.Checkout
+
+<h1>Checkout</h1>
+
+@*@if (Model != null && Model.CartItems.Count > 0)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.CartItems)
+            {
+                <tr>
+                    <td>@item.Product.Name</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Product.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button type="button">Proceed to Checkout</button>
+}
+else
+{
+    <p>Your cart is empty.</p>
+}*@
